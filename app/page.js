@@ -156,11 +156,11 @@ export default function Home() {
           <Stack width="800px" height="300px" spacing={2} overflow="auto">
             {(!Array.isArray(filteredItems) || !filteredItems.length ? inventory : filteredItems).map(({ name, quantity }) => (
               <Box key={name} width="100%" minHeight="100px" display="flex" alignItems="center" justifyContent="space-between" bgcolor="#f0f0f0" padding={5} paddingY={2}>
-                <Typography variant='h4' color="#333" textAlign="center" >{name.charAt(0).toUpperCase() + name.slice(1)}</Typography>
-                <Typography variant='h4' color="#333" textAlign="center" >{quantity}</Typography>
-                <Stack direction="column" spacing={1}>
-                  <Button variant="contained" onClick={() => { addItem(name) }} size="small">Add</Button>
-                  <Button variant="contained" onClick={() => { removeItem(name) }} size="small">Remove</Button>
+                <Typography variant='h4' color="#333" textAlign="left" flexGrow={1} flexBasis={0} >{name.charAt(0).toUpperCase() + name.slice(1)}</Typography>
+                <Typography variant='h4' color="#333" textAlign="center" flexGrow={1} flexBasis={0} >{quantity}</Typography>
+                <Stack direction="column" spacing={1} flexGrow={1} flexBasis={0} display='flex' alignItems='flex-end'>
+                  <Button variant="contained" onClick={() => { addItem(name) }} size="small" sx={{ width: '100px', height: '40px' }} >Add</Button>
+                  <Button variant="contained" onClick={() => { removeItem(name) }} size="small" sx={{ width: '100px', height: '40px' }}>Remove</Button>
                 </Stack>
               </Box>
             ))}
